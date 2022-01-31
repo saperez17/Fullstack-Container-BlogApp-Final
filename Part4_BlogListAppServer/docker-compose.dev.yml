@@ -1,0 +1,16 @@
+
+version: '3.8'
+
+services:
+  blog-app-back:
+    image: blog-app-backend-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules/
+    environment:
+      - NODE_ENV=development
+    ports:
+      - 3001:3001
